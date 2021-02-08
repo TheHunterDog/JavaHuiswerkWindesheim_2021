@@ -1,22 +1,45 @@
 package com.company;
 
-import org.jetbrains.annotations.NotNull;
-
 public class Auto {
-//    Opgave 1 huiswerkweek2
+    private int marge =20;
+ //    Opgave 1 huiswerkweek2
     private String merk;
     private String type;
     private int pk;
     private Aanhanger aanhanger;
     private int maxOpvoerPks;
     private boolean opgevoerd = false;
+    private String fabriek = null;
+//    Opdracht 1 uit week 2 les 1
+    public Auto(){
+        pk = 20;
+        merk = "Merk onbekend";
+        type = "";
+        this.maxOpvoerPks = pk - marge;
 
+    }
+//    Opdracht 2 uit week 2 les 1
+    public Auto(String merk,String type,int pk){
+        this.merk = merk;
+        this.type = type;
+        this.pk = pk;
+        this.maxOpvoerPks = pk - marge;
+
+    }
+    public Auto(String merk,String type,int pk,String fabriek){
+        this.merk = merk;
+        this.type = type;
+        this.pk = pk;
+        this.fabriek = fabriek;
+        this.maxOpvoerPks = pk - marge;
+
+    }
 //    opgave 4
     public int berekenOpvoerMogelijkheid(){
-        return  this.maxOpvoerPks - 20;
+        return  this.maxOpvoerPks;
     }
 //    Opgave 3 / 5
-    public void VergelijkPk(@NotNull Auto rivaal){
+    public void VergelijkPk(Auto rivaal){
         Auto deBeste;
         if (pk > rivaal.getPk()){
              deBeste = this;
@@ -44,7 +67,12 @@ public class Auto {
     }
 //    Opgave 1
     public String toString(){
-        return getMerk()+" " + getType() +" ("+ getPk()+"PK, Maximaal op te voeren met "+ (this.opgevoerd ? this.berekenOpvoerMogelijkheid() : "Is al opgevoerd") +")" ;
+        if (fabriek== null){
+            return getMerk()+" " + getType() +" ("+ getPk()+"PK, " + (this.opgevoerd == false ? "Maximaal op te voeren met "+this.berekenOpvoerMogelijkheid() : " al opgevoerd") +")" ;
+
+        }
+        return getMerk()+" " + getType() +" ("+ getPk()+"PK, " + (this.opgevoerd == false ? "Maximaal op te voeren met "+this.berekenOpvoerMogelijkheid() : " Is al opgevoerd") +") uit de fabriek:"+ this.fabriek  ;
+
     }
 
     public void setMerk(String merk) {
@@ -53,7 +81,7 @@ public class Auto {
 
     public void setPk(int pk) {
         this.pk = pk;
-        this.maxOpvoerPks = pk - 20;
+        this.maxOpvoerPks = pk - marge;
     }
 
     public void setType(String type) {

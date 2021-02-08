@@ -1,6 +1,6 @@
 package com.company;
 
-public class Huiswerkweek3 {
+public class Huiswerkweek1les3 {
 
     public static void main(String[] args) {
         Auto auto1 = new Auto();

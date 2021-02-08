@@ -1,6 +1,6 @@
 package com.company;
 
-public class Huiswerkweek2 {
+public class Huiswerkweek1les2 {
 
     public static void main(String[] args) {
 //        opgave 2

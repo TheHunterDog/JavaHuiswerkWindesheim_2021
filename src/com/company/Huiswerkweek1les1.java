@@ -2,7 +2,7 @@ package com.company;
 
 import java.util.Locale;
 
-public class Huiswerkweek1 {
+public class Huiswerkweek1les1 {
 
     public static void main(String[] args) {
 
