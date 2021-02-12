@@ -1,6 +1,8 @@
 package com.company;
 
+import java.util.UUID;
 public class Auto {
+    private UUID UUID;
     private int marge =20;
  //    Opgave 1 huiswerkweek2
     private String merk;
@@ -16,10 +18,11 @@ public class Auto {
         merk = "Merk onbekend";
         type = "";
         this.maxOpvoerPks = pk - marge;
-
+        this.UUID = java.util.UUID.randomUUID();
     }
 //    Opdracht 2 uit week 2 les 1
     public Auto(String merk,String type,int pk){
+        this.UUID = java.util.UUID.randomUUID();
         this.merk = merk;
         this.type = type;
         this.pk = pk;
@@ -27,12 +30,8 @@ public class Auto {
 
     }
     public Auto(String merk,String type,int pk,String fabriek){
-        this.merk = merk;
-        this.type = type;
-        this.pk = pk;
+        this(merk,type,pk);
         this.fabriek = fabriek;
-        this.maxOpvoerPks = pk - marge;
-
     }
 //    opgave 4
     public int berekenOpvoerMogelijkheid(){
@@ -110,5 +109,9 @@ public class Auto {
 
     public boolean getOpgevoerd() {
         return this.opgevoerd;
+    }
+
+    public java.util.UUID getUUID() {
+        return UUID;
     }
 }

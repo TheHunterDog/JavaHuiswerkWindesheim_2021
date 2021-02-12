@@ -1,5 +1,9 @@
 package com.company;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
+
 public class Weerbericht {
     private double temperatuur;
     private int windkracht;
@@ -7,12 +11,17 @@ public class Weerbericht {
     private boolean bewolking =false;
     private boolean neerslag =false;
     private boolean zon =true;
+    private LocalDate datum;
+    private DateTimeFormatter datumFormat;
+
     public Weerbericht(double temperatuur, int windkracht, String windrichting){
         this(temperatuur, windkracht, windrichting,false,true,false);
 
     }
     public Weerbericht(double temperatuur, int windkracht, String windrichting, boolean bewolking, boolean zon, boolean neerslag){
         this.temperatuur = temperatuur;
+        this.datum = LocalDate.now();
+        this.datumFormat = DateTimeFormatter.ofPattern("eeee");
         this.windkracht = windkracht;
         this.windrichting = windrichting;
         setZon(zon);
@@ -34,7 +43,7 @@ public class Weerbericht {
 
 
  }
-        return "Weerbericht - temperatuur: "+temperatuur+", wind: "+windkracht+" "+windrichting+additions;
+        return getDagVanDeWeek() +" Weerbericht - temperatuur: "+temperatuur+", wind: "+windkracht+" "+windrichting+additions;
     }
 
     public void setBewolking(boolean bewolking) {
@@ -109,5 +118,14 @@ public class Weerbericht {
             System.out.println("We halen de bewolking weg");
             setBewolking(false);
         }
+    }
+    public String getDagVanDeWeek(){
+        return datumFormat.format(datum);
+    }
+    public void verhoogDag(){
+        this.datum = this.datum.plusDays(1);
+    }
+    public void verhoogDag(int i){
+        this.datum = this.datum.plusDays(i);
     }
 }

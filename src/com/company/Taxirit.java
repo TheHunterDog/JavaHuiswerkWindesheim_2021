@@ -5,8 +5,10 @@ public class Taxirit {
     private int aantalPers;
     private int maxAantal;
     private double afstand;
+    private static int aantalritten;
 
     Taxirit(double afstand){
+        this.aantalritten++;
         this.afstand = afstand;
         this.prijsPerKm = 1.25;
     }
@@ -14,6 +16,9 @@ public class Taxirit {
         this(afstand);
         this.aantalPers = aantalPers;
         this.maxAantal = maxAantal;
+    }
+    public int getTotaalAantalRitten(){
+        return aantalritten;
     }
     public void voegPersoonToe(int personen){
         if(maxAantal <= (aantalPers+personen)){
@@ -29,9 +34,16 @@ public class Taxirit {
     }
     public double berekenPrijsPerPersoon(){
         int korting = 0;
+        double minprijs = 2.50;
         if(maxAantal == aantalPers){
             korting+= 10;
         }
-        return (prijsPerKm * afstand) / 100 * (100-korting);
+        double prijs = (prijsPerKm * afstand) / 100 * (100-korting);
+        if(prijs > minprijs){
+            return prijs;
+        }
+        else{
+            return minprijs;
+        }
     }
 }
