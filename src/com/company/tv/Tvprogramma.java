@@ -1,6 +1,8 @@
-package com.company;
+package com.company.tv;
 
-public class Tvprogramma {
+import com.company.Zender;
+
+public abstract class Tvprogramma {
     private String title;
     private int tijdsduur;
     private Zender uitgezondenop;

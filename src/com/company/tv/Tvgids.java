@@ -1,4 +1,4 @@
-package com.company;
+package com.company.tv;
 
 import java.util.ArrayList;
 
