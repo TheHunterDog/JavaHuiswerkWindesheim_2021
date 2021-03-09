@@ -1,15 +1,31 @@
 package com.company.filmstudio;
 
-public class Acteur {
+public class Acteur extends Persoon{
 
-    private String naam;
     private Rol rol;
+    private int vastebeloning;
 
     public Acteur(String naam, Rol rol) {
-        this.naam = naam;
+        this.setNaam(naam);
         this.rol = rol;
     }
+    public Acteur(String naam, Rol rol,int vastebeloning) {
+        this.setNaam(naam);
+        this.rol = rol;
+        this.vastebeloning = vastebeloning;
+    }
+
+    @Override
+    public String toString() {
+        return getNaam()+" - " + rol;
+    }
+
     public void print(){
-        System.out.println(naam+"Als" + rol);
+        System.out.println(getNaam()+"Als" + rol);
+    }
+
+    @Override
+    public double berekenBeloning(int draaidagen) {
+        return vastebeloning + (draaidagen * 50);
     }
 }
