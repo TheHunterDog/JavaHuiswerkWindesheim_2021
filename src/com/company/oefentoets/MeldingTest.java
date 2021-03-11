@@ -2,6 +2,7 @@ package com.company.oefentoets;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
+import org.junit.Assert;
 
 public class MeldingTest {
     public static void main(String[] args){
@@ -15,5 +16,7 @@ public class MeldingTest {
         System.out.println(ker);
         ker.setAangepasteDag(DayOfWeek.FRIDAY);
         System.out.println(ker);
+        Assert.assertTrue(ker.equals(kan));
+
     }
 }
