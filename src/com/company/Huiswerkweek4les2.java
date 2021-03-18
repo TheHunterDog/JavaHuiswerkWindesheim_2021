@@ -3,7 +3,7 @@ package com.company;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 
-public class Huiswekweek4les2 {
+public class Huiswerkweek4les2 {
 
     public static void main(String[] args) {
         PrintWriter writer = null;
