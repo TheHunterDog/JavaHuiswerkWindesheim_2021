@@ -23,5 +23,5 @@ jobs:
         java-version: '11'
         distribution: 'adopt'
     - name: Build with Main
-      run: java -cp src com.company.Huiswerkweek1les1
+      run: javac -cp src src/com/company/Huiswerkweek1les1.java
 
